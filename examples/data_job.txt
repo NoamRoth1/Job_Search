@@ -1,0 +1,8 @@
+Data Analyst
+Analytics Firm
+Responsibilities:
+- Develop dashboards and data visualizations
+- Partner with marketing to track campaign KPIs
+Qualifications:
+- Strong SQL and Tableau skills
+- Experience with ETL and statistical analysis

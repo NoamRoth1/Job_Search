@@ -1,0 +1,6 @@
+Backend Engineer Resume
+Experience:
+- Developed REST APIs with Django and PostgreSQL
+- Deployed services using Kubernetes and CI/CD pipelines
+Skills:
+Python, Django, PostgreSQL, Docker, AWS
