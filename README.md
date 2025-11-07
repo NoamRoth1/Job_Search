@@ -10,6 +10,7 @@ An end-to-end toolkit for comparing a resume against a job description, surfacin
 - Compute local sentence-transformer embeddings (with OpenAI fallback) and cosine similarity for robust keyword matching.
 - Produce ATS-inspired scoring, missing/weak keyword analysis, and optional STAR bullet rewrites.
 - CLI interface for full analysis or STAR-only generation.
+- FastAPI microservice for the AI Email Networking Copilot, including CSV import, outreach drafting, follow-up planning, and reply classification endpoints.
 
 ## Setup
 
@@ -37,6 +38,23 @@ python app.py star --resume examples/backend_resume.txt --job examples/backend_j
 ```
 
 The CLI writes structured JSON following the schemas in `src/io_models.py`.
+
+### Networking Copilot API
+
+Spin up the FastAPI service to access the networking workflows:
+
+```bash
+uvicorn src.networking.app:app --reload
+```
+
+Available endpoints under the `/networking` prefix include:
+
+- `POST /contacts/import` — Upload CSV content (name, email, company, role, relationship, notes, plus optional scoring columns) and receive scored contacts ranked by priority.
+- `POST /drafts` — Provide contact context and a voice profile to receive up to three personalized draft variants and recommended follow-up window.
+- `POST /followups` — Translate an interaction + reply intent into a follow-up schedule.
+- `POST /replies/classify` — Classify raw reply text into positive/neutral/deferral/rejection and receive next-action guidance.
+
+The service keeps prompts and template variants co-located in `src/networking/drafting.py` so you can swap in an LLM or custom templates without touching the API layer. CSV parsing lives in `src/networking/importers.py`, while scoring, follow-up heuristics, and reply classifiers each have dedicated modules with unit tests for rapid iteration.
 
 ## Configuration
 
