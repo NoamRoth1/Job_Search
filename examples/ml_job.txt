@@ -1,8 +1,0 @@
-Senior ML Engineer
-AI Startup
-Responsibilities:
-- Design machine learning pipelines and deploy models
-- Manage data infrastructure and ETL processes
-Qualifications:
-- Expertise with Python, TensorFlow, and MLOps tooling
-- Experience with Docker and cloud platforms

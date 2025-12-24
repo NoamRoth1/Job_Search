@@ -1,6 +1,0 @@
-Data Analyst Resume
-Experience:
-- Built dashboards tracking KPIs for marketing campaigns
-- Automated Excel reporting using Python scripts
-Skills:
-SQL, Tableau, Python, Excel

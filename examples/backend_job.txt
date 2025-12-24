@@ -1,8 +1,0 @@
-Backend Software Engineer
-SaaS Company
-Responsibilities:
-- Build reliable APIs and microservices
-- Implement CI/CD pipelines and container orchestration
-Qualifications:
-- Strong Python, Django, and PostgreSQL experience
-- Hands-on with Docker and Kubernetes
