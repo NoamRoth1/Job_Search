@@ -85,6 +85,29 @@ pytest
 
 Golden tests cover keyword gaps, STAR formatting constraints, and ATS score improvements after applying suggestions.
 
+## Local AI Resume Tailoring API (FastAPI)
+
+This repository also includes a self-contained FastAPI service for local-only resume tailoring. It relies exclusively on free, local models for embeddings and NLP while storing data in SQLite.
+
+### Run the API locally
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+# The spaCy model is downloaded on first run if missing.
+uvicorn app.main:app --reload
+```
+
+Key endpoints are available in the Swagger UI at http://127.0.0.1:8000/docs:
+
+- `POST /auth/register` — Create an account with email/password.
+- `POST /auth/login` — Obtain a bearer token (OAuth2 password flow).
+- `POST /resumes/upload` — Upload a PDF or DOCX resume; the text is parsed and stored.
+- `POST /jobs/analyze` — Provide a job description (and optional `resume_id`). Returns similarity score, rewritten resume bullets, and extracted keywords.
+
+Uploads are stored in `./uploads`, and the SQLite database lives at `./resume_tailor.db` by default.
+
 ## Privacy
 
 - External calls are limited to optional OpenAI usage and job description URL fetches.
